@@ -1,4 +1,5 @@
-﻿using BloggingDemo.Entities;
+﻿using BloggingDemo.DAL;
+using BloggingDemo.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,6 +13,33 @@ namespace BloggingDemo
     {
         static void Main(string[] args)
         {
+            var app = new Program();
+            app.Run();
+        }
+
+        private void Run()
+        {
+            Welcome();
+            //Display the blogs in the database
+            using (var context = new BloggingContext())
+            {
+                //Display all blogs from the database
+                List<Blog> blogs = context.Blogs.ToList();
+                DisplayBlogNames(blogs);
+            }
+        }
+
+        private void DisplayBlogNames(List<Blog> blogs)
+        {
+            foreach(var item in blogs)
+            {
+                Console.WriteLine(item.Name);
+            }
+        }
+
+        private void Welcome()
+        {
+            Console.WriteLine("Blogging Demo Program");
         }
     }
 
@@ -24,6 +52,7 @@ namespace BloggingDemo
             public string Name { get; set; }
             //Navigation Property
             public virtual ICollection<Post> Posts { get; set; }
+            
         }
 
         public class Post
