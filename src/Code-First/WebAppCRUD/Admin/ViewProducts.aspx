@@ -3,14 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>View Products</h1>
 
-    <asp:GridView ID="ProductGridView" runat="server" CssClass="table table-hover" AutoGenerateColumns="False" DataSourceID="ProductsDataSource">
+    <asp:GridView ID="ProductGridView" runat="server" CssClass="table table-hover" AutoGenerateColumns="False" DataSourceID="ProductsDataSource" ItemType="WestWindSystem.Entities.Product">
 
         <Columns>
             <asp:BoundField DataField="ProductID" HeaderText="Product ID" SortExpression="ProductID"></asp:BoundField>
             <asp:BoundField DataField="ProductName" HeaderText="Product Name" SortExpression="ProductName"></asp:BoundField>
-            <asp:TemplateField>
+            <asp:TemplateField HeaderText="Supplier">
                 <ItemTemplate>
-                    <asp:DropDownList ID="SupplierDropDown" runat="server" DataSourceID="SupplierDataSource" DataTextField="CompanyName" DataValueField="SupplierID"></asp:DropDownList>
+                    <asp:DropDownList ID="SupplierDropDown" runat="server" SelectedValue="<%# Item.SupplierID %>" DataSourceID="SupplierDataSource" 
+                        DataTextField="CompanyName" DataValueField="SupplierID" Enabled="false">
+                    </asp:DropDownList>
                 </ItemTemplate>
             </asp:TemplateField>
             
