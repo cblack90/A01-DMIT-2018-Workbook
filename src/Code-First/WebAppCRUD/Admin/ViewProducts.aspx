@@ -14,9 +14,15 @@
                         DataTextField="CompanyName" DataValueField="SupplierID" Enabled="false">
                     </asp:DropDownList>
                 </ItemTemplate>
+
             </asp:TemplateField>
-            
-            <asp:BoundField DataField="CategoryID" HeaderText="Category ID" SortExpression="CategoryID"></asp:BoundField>
+            <asp:TemplateField HeaderText="Category">
+                <ItemTemplate>
+                    <asp:DropDownList ID="CategoryDropDown" runat="server" SelectedValue="<%# Item.CategoryID %>" DataSourceID="CategoryDataSource" 
+                        DataTextField="CategoryName" DataValueField="CategoryID" Enabled="false"></asp:DropDownList>
+                </ItemTemplate>
+            </asp:TemplateField>
+
             <asp:BoundField DataField="QuantityPerUnit" HeaderText="Qty / Unit" SortExpression="QuantityPerUnit"></asp:BoundField>
             <asp:BoundField DataField="MinimumOrderQuantity" HeaderText="Minimum Order Qty" SortExpression="MinimumOrderQuantity"></asp:BoundField>
             <asp:BoundField DataField="UnitPrice" HeaderText="Unit Price" SortExpression="UnitPrice"></asp:BoundField>
@@ -26,4 +32,5 @@
     </asp:GridView>
     <asp:ObjectDataSource runat="server" ID="ProductsDataSource" OldValuesParameterFormatString="original_{0}" SelectMethod="ListProducts" TypeName="WestWindSystem.BLL.CRUDController"></asp:ObjectDataSource>
     <asp:ObjectDataSource runat="server" ID="SupplierDataSource" OldValuesParameterFormatString="original_{0}" SelectMethod="ListSuppliers" TypeName="WestWindSystem.BLL.CRUDController"></asp:ObjectDataSource>
+    <asp:ObjectDataSource runat="server" ID="CategoryDataSource" OldValuesParameterFormatString="original_{0}" SelectMethod="ListCategories" TypeName="WestWindSystem.BLL.CRUDController"></asp:ObjectDataSource>
 </asp:Content>
