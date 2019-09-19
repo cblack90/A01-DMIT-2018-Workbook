@@ -1,5 +1,7 @@
 <Query Kind="Program" />
 
+//TODO: Look up the yield keyword and how it works with IEnumerable. 
+//TODO: get more info on IEnumerable
 void Main()
 {
     Instructors.Dump();

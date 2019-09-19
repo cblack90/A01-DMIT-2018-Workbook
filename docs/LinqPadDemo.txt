@@ -1,0 +1,40 @@
+LinqPad
+No intellisence by default. It is part of the paid version.
+Make connection to database:
+Add Connection (on left) ->  Default Link to SQL -> Next -> "." for server -> Specify new or existing database -> Select desired db -> OK
+In new query, to use the db, must click "Use db <WestWind>"
+F5 shortcut for run
+if select a potion of your Expression and hit f5 it will run just that part of the snippet
+Toggle the results view on/off ctrl+R
+
+Reshape Data:
+Making the data in a shape that is more meaningful to the user. Create a good experience for the customer. Think of data from the perspective of how the user needs to work
+with it. Effectively de-normalize the database.
+Reshaping happens in the BLL.  Last semester, the BLL was thin because we were doing CRUD.  This semester we will flesh that out more.
+
+To achieve usable interfaced we will need to know:
+
+-Transform Data
+	-Reading/Querying the Data
+		-LINQ
+		-+classes (combined with LINQ) whose "Shape" matches our UI needs.(Display)
+	-Issueing Commands
+		-Business oriented commands
+			-Process as Transaction
+-Present our Data in UI
+-Process our Data in UI (send it to the BLL) -Done in Code Behind
+-Security
+
+kay to reading code is the understand the undelining lanugage. - what they are and what they represent.
+
+IEnumerable - known is an interface
+Kind of like a List<t> - collection
+Enumerate - collection, count off -go through a bunch of different things
+
+**look up "yield" keyword on own, works with Enums
+**Edit Preferences -> show line numbers
+
+Adding comments under your code will help with deeper understanding of the language.
+.Dump() is known as an Extension method - usually with collections
+
+Can do a .Count() on an IEnumerable
