@@ -74,7 +74,8 @@
                         DataSourceID="AddressDataSource"
                         AppendDataBoundItems="true"
                         DataTextField="FullAddress"
-                        DataValueField="<%# BindItem.AddressID %>">
+                        DataValueField="AddressID"
+                        SelectedValue="<%# BindItem.AddressID %>">
                         <asp:ListItem Value="">[Select address on file]</asp:ListItem>
                     </asp:DropDownList>
                 </td>

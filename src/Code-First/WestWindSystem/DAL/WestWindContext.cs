@@ -8,8 +8,7 @@ namespace WestWindSystem.DAL
 
     public partial class WestWindContext : DbContext
     {
-        public WestWindContext()
-            : base("name=WWdb")
+        public WestWindContext() : base("name=WWdb")
         {
         }
 
