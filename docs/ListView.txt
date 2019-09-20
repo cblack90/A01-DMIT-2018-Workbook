@@ -6,5 +6,15 @@ ListView Dive
 -what if we do want include Address info - ....Suppliers.Include("Address").ToList(); 
 	-works, but not the best solution
 	-better solution - ... Suppliers.Include(nameof(Supplier.Address)).ToList();
-Package Manager
+**Package Manager
 PM> update-package -r
+
+Instead of an ItemTemplate we could us an InsertItemTemplate
+Ensure you add to ListView -> InserItemPostion="FirstItem/LastItem"-> default is to not display it
+In ListView can us CommanName property - Insert - Update - Delete - Clear 
+
+<%# Item.... %> - One way data bind
+TextBoxes -> <%# BindItem.Phone %> - Two way data bind  
+Any time we are editing, reference BindItem
+
+DropDownList -> for Address - BindItem.AddressID so that it is appropriately connected to the Supplier Class

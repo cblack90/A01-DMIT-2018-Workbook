@@ -22,7 +22,7 @@
         </LayoutTemplate>
 
         <InsertItemTemplate>
-            <tr>
+            <tr class="bg-success">
                 <td>
                     <asp:LinkButton ID="AddSupplier" runat="server" CssClass="btn btn-success glyphicon glyphicon-plus" CommandName="Insert">Add</asp:LinkButton>
                 </td>
@@ -40,7 +40,7 @@
                     <asp:DropDownList ID="AddressDropDown" runat="server"
                         DataSourceID="AddressDataSource"
                         AppendDataBoundItems="true"
-                        DataTextField="Address1"
+                        DataTextField="FullAddress"
                         DataValueField="<%# BindItem.AddressID %>">
                         <asp:ListItem Value="">[Select address on file]</asp:ListItem>
                     </asp:DropDownList>
@@ -53,11 +53,44 @@
                 </td>
             </tr>
         </InsertItemTemplate>
+        <EditItemTemplate>
+            <tr class="bg-info">
+                <td>
+                    <asp:LinkButton ID="UpdateSupplier" runat="server" CssClass="btn btn-success glyphicon glyphicon-okay" CommandName="Update">Save</asp:LinkButton>
+                </td>
+                <td>
+                    <asp:TextBox ID="Companyname" runat="server" Text="<%# BindItem.CompanyName %>" placeholder="Enter company name"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:TextBox ID="Contact" runat="server" Text="<%# BindItem.ContactName %>" placeholder="Contact name"></asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="JobTitle" runat="server" Text="<%# BindItem.ContactTitle %>" placeholder="Job Title"></asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="Email" runat="server" Text="<%# BindItem.Email %>" TextMode="Email" placeholder="Email"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:DropDownList ID="AddressDropDown" runat="server"
+                        DataSourceID="AddressDataSource"
+                        AppendDataBoundItems="true"
+                        DataTextField="FullAddress"
+                        DataValueField="<%# BindItem.AddressID %>">
+                        <asp:ListItem Value="">[Select address on file]</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td>
+                    <asp:TextBox ID="Phone" runat="server" Text="<%# BindItem.Phone %>" TextMode="Phone" placeholder="Phone"></asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="Fax" runat="server" Text="<%# BindItem.Fax %>" TextMode="Email" placeholder="Fax"></asp:TextBox>
+                </td>
+            </tr>
+        </EditItemTemplate>
 
         <ItemTemplate>
             <tr>
-                <td><%# Item.SupplierID %>
-
+                <td>
+                    <asp:LinkButton ID="EditSupplier" runat="server"
+                        CssClass="btn btn-info glyphicon glyphicon-pencil"
+                        CommandName="Edit">Edit</asp:LinkButton>
                 </td>
                 <td><%# Item.CompanyName %></td>
                 <td>
