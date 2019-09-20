@@ -6,3 +6,5 @@ ListView Dive
 -what if we do want include Address info - ....Suppliers.Include("Address").ToList(); 
 	-works, but not the best solution
 	-better solution - ... Suppliers.Include(nameof(Supplier.Address)).ToList();
+Package Manager
+PM> update-package -r
