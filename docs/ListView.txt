@@ -1,2 +1,8 @@
 ListView Dive
 -good for full CRUD processes
+-have navigation properties - Address.City - doesn't work
+-public virtual is lazy loading - wont try and bring in all the related data for the related entity
+	-only bring back the property that is mapped
+-what if we do want include Address info - ....Suppliers.Include("Address").ToList(); 
+	-works, but not the best solution
+	-better solution - ... Suppliers.Include(nameof(Supplier.Address)).ToList();

@@ -32,7 +32,7 @@
                     <%# Item.Email %>
 
                 </td>
-                <td><%# Item.AddressID %></td>
+                <td><%# Item.Address.City %></td>
                 <td><%# Item.Phone %>
                     <br />
                     <%# Item.Fax %>
