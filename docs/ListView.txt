@@ -18,3 +18,6 @@ TextBoxes -> <%# BindItem.Phone %> - Two way data bind
 Any time we are editing, reference BindItem
 
 DropDownList -> for Address - BindItem.AddressID so that it is appropriately connected to the Supplier Class
+
+partial keyword for class -> tells compiler we could place other members of this class in another physical file
+create a separate folder that allows us to add. If we edit the auto generated one, if we have to regenerate, we lose the work
