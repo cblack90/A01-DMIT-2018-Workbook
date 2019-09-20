@@ -41,7 +41,8 @@
                         DataSourceID="AddressDataSource"
                         AppendDataBoundItems="true"
                         DataTextField="FullAddress"
-                        DataValueField="<%# BindItem.AddressID %>">
+                        DataValueField="AddressID"
+                        SelectedValue="<%# BindItem.AddressID %>">
                         <asp:ListItem Value="">[Select address on file]</asp:ListItem>
                     </asp:DropDownList>
 
@@ -69,7 +70,7 @@
                     <asp:TextBox ID="Email" runat="server" Text="<%# BindItem.Email %>" TextMode="Email" placeholder="Email"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:DropDownList ID="AddressDropDown" runat="server"
+                    <asp:DropDownList ID="AddressDropDownList" runat="server"
                         DataSourceID="AddressDataSource"
                         AppendDataBoundItems="true"
                         DataTextField="FullAddress"
