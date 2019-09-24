@@ -5,3 +5,7 @@ ListView has multiple events that we can hook into, this will help with exceptio
 F9 will set a break point.
 
 $ before string means string interpolation.  Allows you to embed your actual values of variables right in the your string instead of concatenating.
+
+FreeCamp.WebApp - helps with wiring up exception handling
+source code github.com/dgilleland -> Message-User-Control
+<%@ Register - known as a register directive

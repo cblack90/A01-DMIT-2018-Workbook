@@ -1,11 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewSuppliers.aspx.cs" Inherits="WebAppCRUD.Admin.ViewSuppliers" %>
+
+<%@ Register Src="~/UserControls/MessageUserControl.ascx" TagPrefix="my" TagName="MessageUserControl" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>View Suppliers</h1>
 
-    <asp:Label ID="MessageLabel" runat="server"></asp:Label>
+    <my:MessageUserControl runat="server" ID="MessageUserControl" />
 
-    <asp:ListView ID="SuppliersListView" runat="server" DataSourceID="SupplierDataSource" InsertItemPosition="FirstItem" 
-        OnItemInserting="SuppliersListView_ItemInserting" OnItemInserted="SuppliersListView_ItemInserted" ItemType="WestWindSystem.Entities.Supplier">
+    <asp:ListView ID="SuppliersListView" runat="server" DataSourceID="SupplierDataSource" InsertItemPosition="FirstItem"  ItemType="WestWindSystem.Entities.Supplier">
         <LayoutTemplate>
             <table class="table table-hover table-condensed">
                 <thead>
@@ -122,6 +124,6 @@
             </tr>
         </ItemTemplate>
     </asp:ListView>
-    <asp:ObjectDataSource ID="SupplierDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="ListSuppliers" TypeName="WestWindSystem.BLL.CRUDController" DataObjectTypeName="WestWindSystem.Entities.Supplier" InsertMethod="AddSupplier" OnInserting="SupplierDataSource_Inserting" OnInserted="SupplierDataSource_Inserted"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="SupplierDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="ListSuppliers" TypeName="WestWindSystem.BLL.CRUDController" DataObjectTypeName="WestWindSystem.Entities.Supplier" InsertMethod="AddSupplier" OnInserted="CheckForExceptions" OnUpdated="CheckForExceptions" OnDeleted="CheckForExceptions"></asp:ObjectDataSource>
     <asp:ObjectDataSource ID="AddressDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="ListAddresses" TypeName="WestWindSystem.BLL.CRUDController"></asp:ObjectDataSource>
 </asp:Content>
