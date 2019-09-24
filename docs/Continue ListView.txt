@@ -9,3 +9,6 @@ $ before string means string interpolation.  Allows you to embed your actual val
 FreeCamp.WebApp - helps with wiring up exception handling
 source code github.com/dgilleland -> Message-User-Control
 <%@ Register - known as a register directive
+
+DataKeyNames -> control to support Update/Delete
+enum - can think of as a named constant

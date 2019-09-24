@@ -7,7 +7,8 @@
 
     <my:MessageUserControl runat="server" ID="MessageUserControl" />
 
-    <asp:ListView ID="SuppliersListView" runat="server" DataSourceID="SupplierDataSource" InsertItemPosition="FirstItem"  ItemType="WestWindSystem.Entities.Supplier">
+    <asp:ListView ID="SuppliersListView" runat="server" DataSourceID="SupplierDataSource" DataKeyNames="SupplierID"
+        InsertItemPosition="FirstItem"  ItemType="WestWindSystem.Entities.Supplier">
         <LayoutTemplate>
             <table class="table table-hover table-condensed">
                 <thead>
@@ -30,7 +31,10 @@
             <tr class="bg-success">
                 <td>
                     <asp:LinkButton ID="AddSupplier" runat="server" CssClass="btn btn-success glyphicon glyphicon-plus" CommandName="Insert">Add</asp:LinkButton>
+                    <br />
+                    <asp:LinkButton ID="CancelInsert" runat="server" CssClass="btn btn-default" CommandName="Cancel">Clear</asp:LinkButton>
                 </td>
+                
                 <td>
                     <asp:TextBox ID="Companyname" runat="server" Text="<%# BindItem.CompanyName %>" placeholder="Enter company name"></asp:TextBox>
                 </td>
@@ -63,7 +67,8 @@
             <tr class="bg-info">
                 <td>
                     <asp:LinkButton ID="UpdateSupplier" runat="server" CssClass="btn btn-success glyphicon glyphicon-okay" CommandName="Update">Save</asp:LinkButton>
-                </td>
+                    <asp:LinkButton ID="CancelUpdate" runat="server" CssClass="btn btn-default" CommandName="Cancel">Cancel</asp:LinkButton>
+C                </td>
                 <td>
                     <asp:TextBox ID="Companyname" runat="server" Text="<%# BindItem.CompanyName %>" placeholder="Enter company name"></asp:TextBox>
                 </td>
@@ -98,6 +103,10 @@
                     <asp:LinkButton ID="EditSupplier" runat="server"
                         CssClass="btn btn-info glyphicon glyphicon-pencil"
                         CommandName="Edit">Edit</asp:LinkButton>
+                    <br />
+                    <br />
+                    <asp:LinkButton ID="Delete" runat="server" CssClass="btn btn-danger" OnClientClick="return confirm ('Are you sure you want to delete this supplier?')"
+                        CommandName="Delete">Delete</asp:LinkButton>
                 </td>
                 <td><%# Item.CompanyName %></td>
                 <td>
@@ -124,6 +133,8 @@
             </tr>
         </ItemTemplate>
     </asp:ListView>
-    <asp:ObjectDataSource ID="SupplierDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="ListSuppliers" TypeName="WestWindSystem.BLL.CRUDController" DataObjectTypeName="WestWindSystem.Entities.Supplier" InsertMethod="AddSupplier" OnInserted="CheckForExceptions" OnUpdated="CheckForExceptions" OnDeleted="CheckForExceptions"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="SupplierDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="ListSuppliers" TypeName="WestWindSystem.BLL.CRUDController" DataObjectTypeName="WestWindSystem.Entities.Supplier" InsertMethod="AddSupplier" OnInserted="CheckForExceptions" OnUpdated="CheckForExceptions" OnDeleted="CheckForExceptions" DeleteMethod="DeleteSupplier" UpdateMethod="UpdateSupplier">
+
+    </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="AddressDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="ListAddresses" TypeName="WestWindSystem.BLL.CRUDController"></asp:ObjectDataSource>
 </asp:Content>
