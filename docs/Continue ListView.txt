@@ -1,0 +1,7 @@
+Continue on Code-First Workbook
+
+ListView has multiple events that we can hook into, this will help with exception handling
+
+F9 will set a break point.
+
+$ before string means string interpolation.  Allows you to embed your actual values of variables right in the your string instead of concatenating.
