@@ -14,6 +14,7 @@
                     <h3><%# Item.CategoryName %></h3>
                     <p><%# Item.Description %></p>
                     <blockquote>
+                         <%--getting the date from the class above--%>
                         <asp:Repeater ID="ProductRepeater" runat="server"
                              DataSource="<%# Item.Products %>"
                              ItemType="WestWindSystem.DataModels.ProductSummary">

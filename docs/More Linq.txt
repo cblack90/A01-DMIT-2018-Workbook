@@ -1,0 +1,16 @@
+If you want to find out the data type of an element, Highlight and click F5.
+
+When:
+select new
+{
+    Stuff
+}
+Knows as anonymous data type
+
+IEnumberable = interface
+
+Complex datatypes
+-Class
+-Structs
+-Interface- a "contract" regarding methods
+-enum - allows you to create a distinct list to work with, e.g. Days of the week

@@ -1,7 +1,6 @@
 <Query Kind="Expression">
   <Connection>
     <ID>9f795fec-6525-43c5-bbd0-2819df27768a</ID>
-    <Persist>true</Persist>
     <Server>.</Server>
     <Database>WestWind</Database>
   </Connection>
@@ -18,6 +17,7 @@ select new
             //    Order            Order[]
             from lineItem in purchase.OrderDetails
             // OrderDetail                OrderDetail[]
+			//this format allows you to drill down through multiple tables to get to a meaningful select statement
             select new
             {
                 Name = lineItem.Product.ProductName,
