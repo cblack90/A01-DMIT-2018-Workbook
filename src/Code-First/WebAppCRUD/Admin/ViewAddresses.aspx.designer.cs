@@ -13,6 +13,15 @@ namespace WebAppCRUD.Admin {
     public partial class ViewAddresses {
         
         /// <summary>
+        /// AddressListView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView AddressListView;
+        
+        /// <summary>
         /// AddressDataSource control.
         /// </summary>
         /// <remarks>
