@@ -55,6 +55,7 @@
     <Compile Include="BLL\ProductManagementController.cs" />
     <Compile Include="BLL\SalesController.cs" />
     <Compile Include="BLL\SetupUserRegistrationController.cs" />
+    <Compile Include="BLL\SupplierProductController.cs" />
     <Compile Include="DataModels\DatabaseVersion.cs" />
     <Compile Include="DataModels\EditCustomerOrder.cs" />
     <Compile Include="DataModels\InvoiceHeader.cs" />

@@ -11,6 +11,6 @@ namespace WestWindSystem.DataModels
         public string ProductName { get; set; }
         public decimal UnitPrice { get; set; }
         public string QuantityPerUnit { get; set; }
-        public double CategoryName { get; set; }
+        public string CategoryName { get; set; }
     }
 }
