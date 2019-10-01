@@ -22,8 +22,8 @@ namespace WestWindSystem.BLL
                              {
                                  CompanyName = company.CompanyName,
                                  ContactName = company.ContactName,
-                                 PhoneNumber = company.Phone,
-                                 ProductSummary = from item in company.Products
+                                 Phone= company.Phone,
+                                 SupplierProductSummary = from item in company.Products
                                                   select new SupplierProductSummary
                                                   {
                                                       ProductName = item.ProductName,
