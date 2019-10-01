@@ -9,6 +9,7 @@ using WestWindSystem.DataModels;
 
 namespace WestWindSystem.BLL
 {
+    [DataObject]
     public class SupplierProductController
     {
         [DataObjectMethod(DataObjectMethodType.Select)]
