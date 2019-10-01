@@ -219,6 +219,7 @@
     <Content Include="Images\ProductCatalog.png" />
     <Content Include="Images\www-ProductCatalog.png" />
     <Content Include="OurProducts.aspx" />
+    <Content Include="OurSuppliers.aspx" />
     <Content Include="Sales\CustomerOrderForm.aspx" />
     <Content Include="Scripts\Bootstrap-Lightbox\ekko-lightbox.css" />
     <Content Include="Scripts\Bootstrap-Lightbox\ekko-lightbox.js" />
@@ -421,6 +422,13 @@
     </Compile>
     <Compile Include="OurProducts.aspx.designer.cs">
       <DependentUpon>OurProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OurSuppliers.aspx.cs">
+      <DependentUpon>OurSuppliers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OurSuppliers.aspx.designer.cs">
+      <DependentUpon>OurSuppliers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sales\CustomerOrderForm.aspx.cs">
