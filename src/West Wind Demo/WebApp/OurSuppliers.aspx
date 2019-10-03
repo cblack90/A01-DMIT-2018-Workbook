@@ -19,6 +19,7 @@
                             </FooterTemplate>
                             <ItemTemplate>
                                 <tr>
+                                    <th><%# Item.ProductName %></th>
                                     <th><%# Item.CategoryName %></th>
                                     <th><%# Item.UnitPrice %></th>
                                     <th><%# Item.QuantityPerUnit %></th>
