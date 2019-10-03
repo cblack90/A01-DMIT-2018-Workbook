@@ -1,0 +1,6 @@
+get a starter kit
+reverse engineer database
+do CRUD form
+nested repeater
+add LINQ to nested repeater
+Message User Control (some built in, but can delete and bring in the NuGet package)
