@@ -8,8 +8,27 @@ Suppliers will be interacting with a page that shows the following information.
 
 ![Mockup](./Shipping-Orders.svg)
 
-The information shown here will be displayed in a **ListView**, using the *SelectedItemTemplate* as the part that shows the details for a given order.
+The information shown here will be displayed in a **ListView**, using the *EditItemTemplate* as the part that shows the details for a given order.
 
+## Events and Interactions
+
+![Plan](./Shipping-Orders-Annotated.svg)
+- ![](1.svg) - **Page_Load** event
+    - ![](A.svg) - Supplier/Contact names obtained from who the logged-in user is.
+    - ![](B.svg) - Load the ListView data from BLL
+        - **`List<OutstandingOrder> OrderProcessingController.LoadOrders(supplierID)`**
+    - ![](C.svg) - Load the list of shippers from BLL
+        - **`List<ShipperSelection> OrderProcessingController.ListShippers()`**
+- ![](2.svg) - **EditCommand** click event
+    - Default EditCommand behaviour of the ListView
+    - `<EditItemTemplate>` will display the extended information of the products ![](D.svg) and other details of the order.
+- ![](3.svg) - - **ShipOrder** click
+    - Use a cusom command name of "ShipOrder" and handle the ListView's `ItemCommand` event.
+    - Gather information from the form of the products to be shipped an the shipping information.  This is sent to the following method in the BLL for processing:
+    ```csharp
+    void OrderProcessingController.ShipOrder(int orderID, ShippingDirections shipping, List<OrderItem> items)
+    ```
+ 
 ## POCOs
 
 ### Commands
