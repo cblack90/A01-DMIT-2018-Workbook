@@ -13,6 +13,12 @@ namespace WebApp.Models
     // You can add User data for the user by adding more properties to your User class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        #region My Customer User Properties
+        //All of these will be added as extra colums on the AspNetUser database table
+        public int? PersonID { get; set; }
+        public string FavoriteColour { get; set; }
+
+        #endregion
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
