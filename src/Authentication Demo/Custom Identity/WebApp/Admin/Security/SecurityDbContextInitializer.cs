@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using DemoSystem2.BLL;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,46 @@ namespace WebApp.Admin.Security
 
             #endregion
             #region Seed users
+            //Create an Admin user
+            var adminUser = new ApplicationUser
+            {
+                //TODO: Move hard-coded values to Web.config
+                UserName = "WebAdmin",
+                Email = "Elections2020@Hackers.ru",
+                EmailConfirmed = true
+            };
+
+            //instantiate the BLL user manger
+            var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
+            //The ApplicationUserManager is a BLL class in this website's App_Start/IdentityConfig.cs
+            var result = userManager.Create(adminUser, "Pa$$word"); //TODO: Move password
+            if (result.Succeeded)
+            {
+                //Get the Id that was generated for the user we created/added
+                var adminId = userManager.FindByName("WebAdmin").Id;
+                //Add the user to the Administrators role
+                userManager.AddToRole(adminId, "Administrators");
+            }
+
+            //Create the other user accounts for all the people in my Demo database
+            var demoManager = new DemoController();
+            var people = demoManager.ListPeople();
+            foreach(var person in people)
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = $"{person.FirstName}.{person.LastName}",
+                    Email = $"{person.FirstName}.{person.LastName}@DemoIsland.com",
+                    EmailConfirmed = true,
+                    PersonID = person.PersonID
+                };
+                result = userManager.Create(user, "Pa44word1");
+                if (result.Succeeded)
+                {
+                    var userId = userManager.FindByName(user.UserName).Id;
+                    userManager.AddToRole(userId, "Registered Users");
+                }
+            }
             #endregion
             //This is an example of polymorphism - means it can have many behaviours
             // Note: keep this call to the base class so it can do its seeding work
