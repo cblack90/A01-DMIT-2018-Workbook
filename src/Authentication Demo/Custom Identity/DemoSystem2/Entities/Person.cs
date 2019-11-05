@@ -6,6 +6,7 @@ namespace DemoSystem2.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("Person")]
     public partial class Person
     {
         public int PersonID { get; set; }
