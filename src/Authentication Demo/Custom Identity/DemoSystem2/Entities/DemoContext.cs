@@ -5,7 +5,7 @@ namespace DemoSystem2.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class DemoContext : DbContext
+    internal partial class DemoContext : DbContext
     {
         public DemoContext()
             : base("name=DefaultConnection")
