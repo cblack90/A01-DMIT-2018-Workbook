@@ -6,7 +6,7 @@ namespace WestWindSystem.DataModels
 {
     public class OrderItem
     {
-        public string ProductID { get; set; }
+        public int ProductID { get; set; }
         public string ProductName { get; set; }
         public short Qty { get; set; }
         public string QtyPerUnit { get; set; }

@@ -29,8 +29,26 @@ void Main()
 				ShipToName = sale.ShipName,
 				OrderDate = sale.OrderDate.Value,
 				RequiredBy = sale.RequiredDate.Value,
-				//OutstandingItems
-				//FullShippingAddress
+				OutstandingItems = from item in sale.OrderDetails
+									where item.Product.SupplierID == supplierID
+									select new OrderItem
+									{
+										ProductID = item.ProductID,
+										ProductName = item.Product.ProductName,
+										Qty = item.Quantity,
+										QtyPerUnit = item.Product.QuantityPerUnit,
+										//TODO: Figure out the Outstanding quantity
+//										Outstanding = (from ship in item.Order.Shipments
+//													  from shipItem in ship.ManifestItems
+//													  where shipItem.ProductID == item.ProductID
+//													  select shipItem.ShipQuantity).Sum()
+									},
+				FullShippingAddress = //TODO: how to use sale.ShipAddressID,
+										sale.Customer.Address.Address + Environment.NewLine + 
+										sale.Customer.Address.City + ", " +
+										sale.Customer.Address.Region + Environment.NewLine + 
+										sale.Customer.Address.Country + " " +
+										sale.Customer.Address.PostalCode,
 				Comments = sale.Comments
 			};
 			return result.ToList();
@@ -57,7 +75,7 @@ void Main()
     }
 	    public class OrderItem
     {
-        public string ProductID { get; set; }
+        public int ProductID { get; set; }
         public string ProductName { get; set; }
         public short Qty { get; set; }
         public string QtyPerUnit { get; set; }
