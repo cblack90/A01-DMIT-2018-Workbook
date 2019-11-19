@@ -1,11 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrderShipping.aspx.cs" Inherits="WebApp.Sales.OrderShipping" %>
+
+<%@ Register Src="~/UserControls/MessageUserControl.ascx" TagPrefix="uc1" TagName="MessageUserControl" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1 class="page-header">Order Shipping</h1>
     <div class="row">
         <div class="col-md-12">
+
             <p>
                 <asp:Literal ID="SupplierInfo" runat="server"></asp:Literal>
             </p>
+            <uc1:MessageUserControl runat="server" ID="MessageUserControl" />
+
             <asp:ListView ID="CurrentOrders" runat="server" DataSourceID="SupplierOrderDataSource" ItemType="WestWindSystem.DataModels.OutStandingOrder"
                 OnItemCommand="CurrentOrders_ItemCommand">
 

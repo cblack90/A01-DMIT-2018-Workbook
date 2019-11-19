@@ -55,7 +55,7 @@ namespace WebApp.Sales
                     shipInfo.FreightCharge = freight;
 
                 List<ShippedItem> goods = new List<ShippedItem>();
-                GridView gv = e.Item.FindControl("ProductGridView") as GridView;
+                GridView gv = e.Item.FindControl("ProductsGridView") as GridView;
                 if(gv != null)
                 {
                     foreach(GridViewRow row in gv.Rows)
@@ -76,8 +76,12 @@ namespace WebApp.Sales
 
                     }
                 }
-                var controller = new OrderProcessingController();
-                controller.ShipOrder(orderID, shipInfo, goods);
+                MessageUserControl.TryRun(() =>
+                {
+                    var controller = new OrderProcessingController();
+                    controller.ShipOrder(orderID, shipInfo, goods);
+                }, "Order shipment Recorded","The products identified as shipped are recorded in the database");
+                
             }
         }
     }
