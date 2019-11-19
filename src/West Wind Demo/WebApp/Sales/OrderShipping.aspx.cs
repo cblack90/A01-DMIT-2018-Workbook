@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebApp.Admin.Security; //for Settings Class
+using WestWindSystem.BLL;
 using WestWindSystem.DataModels;
 
 namespace WebApp.Sales
@@ -38,6 +39,7 @@ namespace WebApp.Sales
                     orderID = int.Parse(ordIdLabel.Text);
 
                 ShippingDirections shipInfo = new ShippingDirections(); //blank obj
+
                 DropDownList shipViaDropDown = e.Item.FindControl("ShipperDropDown") as DropDownList;
                 if (shipViaDropDown != null) // if I got the control
                     shipInfo.ShipperID = int.Parse(shipViaDropDown.SelectedValue);
@@ -52,7 +54,30 @@ namespace WebApp.Sales
                 if (freightLabel != null && decimal.TryParse(freightLabel.Text, out freight))
                     shipInfo.FreightCharge = freight;
 
+                List<ShippedItem> goods = new List<ShippedItem>();
+                GridView gv = e.Item.FindControl("ProductGridView") as GridView;
+                if(gv != null)
+                {
+                    foreach(GridViewRow row in gv.Rows)
+                    {
+                        //get product id and ship qty
+                        short quantity;
+                        HiddenField prodID = row.FindControl("ProductID") as HiddenField;
+                        TextBox qty = row.FindControl("ShipQuantity") as TextBox;
+                        if(prodID != null && qty != null && short.TryParse(qty.Text, out quantity))
+                        {
+                            ShippedItem item = new ShippedItem
+                            {
+                                Product = prodID.Value,
+                                Quantity = quantity
+                            };
+                            goods.Add(item);
+                        }
 
+                    }
+                }
+                var controller = new OrderProcessingController();
+                controller.ShipOrder(orderID, shipInfo, goods);
             }
         }
     }
